@@ -1,0 +1,15 @@
+{
+  "name": "Kalender Sachsen",
+  "short_name": "Kalender",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#b6cda7",
+  "theme_color": "#b6cda7",
+  "icons": [
+    {
+      "src": "icons/ms-icon-310x310.png",
+      "sizes": "310x310",
+      "type": "image/png"
+    }
+  ]
+}

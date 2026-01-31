@@ -1,0 +1,257 @@
+/* Allgemeine Grundstile */
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 1rem;
+  box-sizing: border-box;
+  background: #fcf3d0;
+  color: #2a2a2a;
+}
+
+h1, h3 {
+  margin: 0.5rem 0;
+  text-align: center;
+}
+
+/* Topbar */
+#topbar {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background-color: #b6cda7;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+#topbar.hidden {
+  opacity: 0;
+  pointer-events: none;
+  height: 0;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+/* Buttons und Selects */
+button, select {
+  font-size: 1rem;
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+button:hover, select:hover {
+  background-color: #e0e0e0;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,<svg fill='gray' height='12' width='12' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 0.7rem center;
+  background-size: 12px;
+  padding-right: 2rem;
+}
+
+/* Kalender-Grid */
+.kalender-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+/* Einzelner Monat */
+.monat {
+  background: white;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 8px #00000026;
+}
+
+.monat h3 {
+  background-color: #c6dab3;
+  color: #2a2a2a;
+  padding: 0.5rem;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  margin: 0 -0.5rem 0.5rem -0.5rem;
+  text-align: center;
+}
+
+th {
+  background-color: #e6f3c6;
+  font-weight: bold;
+  color: #2a2a2a;
+  height: 2rem;
+  border-radius: 6px;
+  padding: 0.4rem;
+}
+
+/* Tabelle (Wochentage + Tage) */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 0.85rem;
+}
+
+th, td {
+  text-align: center;
+  padding: 0.4rem 0;
+  height: 2.2rem;
+}
+
+/* Wochenzahl-Spalte */
+.kw {
+  background-color: #fceaaa;
+  font-weight: bold;
+  color: #2a2a2a;
+  border-radius: 6px;
+  padding: 0.4rem;
+}
+
+/* Tag-Zellen */
+.tag {
+  border-radius: 4px;
+  cursor: default;
+}
+
+/* Feiertage & Heute */
+.feiertag {
+  background-color: #f28b82;
+  color: white;
+}
+
+.heute {
+  background-color: #afdb9a;
+  font-weight: bold;
+}
+
+/* Popup */
+.popup {
+  position: absolute;
+  background-color: #f28b82;
+  border: 1px solid #fdb9b2;
+  color: #ffffff;
+  font-weight: 500;
+  padding: 6px 10px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.2);
+  z-index: 1000;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Dark Mode */
+body.dark {
+  background: #303449;
+  color: #eee;
+}
+
+body.dark .monat {
+  background: #2b2b40;
+  color: #eee;
+}
+
+body.dark .monat h3 {
+  background-color: #4a5989;
+  color: #ffffff;
+  padding: 0.5rem;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  margin: 0 -0.5rem 0.5rem -0.5rem;
+  text-align: center;
+}
+
+body.dark #topbar {
+  background-color: #4a5989;
+}
+
+body.dark button, body.dark select {
+  background-color: #444;
+  color: #eee;
+  border-color: #666;
+}
+
+body.dark th {
+  background-color: #464669;
+  font-weight: bold;
+  color: #ffffff;
+  height: 2rem;
+}
+
+body.dark .kw {
+  background-color: #77729c;
+  color: white;
+}
+
+body.dark .feiertag {
+  background-color: #893939;
+}
+
+body.dark .heute {
+  background-color: #507d50;
+}
+
+body.dark .popup {
+  background-color: #ab5555;
+  border-color: #893939;
+  color: white;
+}
+
+/* Responsives Design */
+
+/* Tablet: 2 Spalten */
+@media (max-width: 900px) {
+  .kalender-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #topbar {
+    justify-content: center;
+  }
+
+  button, select {
+    font-size: 1.1rem;
+    padding: 0.7rem 1.4rem;
+  }
+}
+
+/* Smartphone: 1 Spalte */
+@media (max-width: 600px) {
+  .kalender-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #topbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  button, select {
+    font-size: 1.25rem;
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+
+  .monat {
+    font-size: 1rem;
+  }
+}

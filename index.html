@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kalender Sachsen</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.webmanifest" />
+
+  <link rel="icon" type="image/png" href="/icons/ms-icon-310x310.png" />
+
+</head>
+<body>
+
+  <div id="topbar">
+    <button id="btnToggleTopbar">Topbar ausblenden</button>
+    <select id="jahrSelect"></select>
+    <button id="btnAktuellesJahr">Zurück zum aktuellen Jahr</button>
+    <button id="darkModeToggle">🌙/☀️</button>
+  </div>
+
+  <h1 id="jahrUeberschrift"></h1>
+  <div id="kalender" class="kalender-grid"></div>
+
+  <div id="feiertagPopup" class="popup hidden"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
